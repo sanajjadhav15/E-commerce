@@ -12,15 +12,16 @@ const Cart = () => {
     clearCart,
   } = useProductContext();
 
+
   return (
-    <div className="container mx-auto p-4">
-      <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">
+    <div className="container min-h-screen mx-auto p-4 dark:bg-gray-600">
+      <h2 className="text-3xl font-bold mb-6 text-center text-gray-800 dark:text-gray-50">
         Shopping Cart
       </h2>
       {cart.length === 0 ? (
-        <div className="text-center text-gray-800">
-          <p className="text-gray-600 text-lg mb-6">Your cart is empty</p>
-          <button className="bg-blue-500 text-white text-lg px-2 py-1 rounded-md hover:bg-blue-600 px-4">
+        <div className="text-center">
+          <p className="text-gray-600 dark:text-gray-50 text-lg mb-6">Your cart is empty</p>
+          <button className="bg-blue-500 text-white text-lg px-2 py-1 rounded-md hover:bg-blue-600 dark:bg-blue-700 dark:hover:bg-blue-900">
             <Link to="/">Continue shopping</Link>
           </button>
         </div>
@@ -32,14 +33,14 @@ const Cart = () => {
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-16 h-16 object-contain rounded-full mr-4 hover:w-24 hover:h-24 transition-all duration-300 ease-in-out"
+                  className="w-16 h-16 object-contain dark:object-cover dark:hover:object-contain rounded-full mr-4 hover:w-24 hover:h-24 transition-all duration-300 ease-in-out"
                 />
               )}
               <div className="flex-grow">
-                <h3 className="font-semibold text-lg text-gray-800">
+                <h3 className="font-semibold text-lg text-gray-800 dark:text-gray-50">
                   {item.title}
                 </h3>
-                <p className="text-gray-800 font-[450]">
+                <p className="text-gray-800 font-[450] dark:text-gray-50">
                   ${item.price.toFixed(2)}
                 </p>
               </div>
@@ -51,7 +52,7 @@ const Cart = () => {
                 >
                   -
                 </button>
-                <span className="px-3">{item.quantity}</span>
+                <span className="px-3 text-gray-700 dark:text-gray-50">{item.quantity}</span>
                 <button
                   className="bg-gray-200 text-gray-700 px-1 h-6 w-6 rounded hover:bg-gray-300  transition-all"
                   onClick={() => increaseQuantity(item)}
@@ -71,11 +72,11 @@ const Cart = () => {
       )}
       {cart.length > 0 && (
         <div className="m-4">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-2">
-            Total items:
+          <h2 className="text-2xl font-semibold text-gray-800 mb-2 dark:text-gray-50">
+            Total items:{" "}
             {cart.reduce((total, item) => total + item.quantity, 0)}
           </h2>
-          <h2 className="text-2xl font-semibold text-gray-800">
+          <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-50">
             Total price: $
             <span className="underline">
               {cart
@@ -85,7 +86,7 @@ const Cart = () => {
           </h2>
 
           <button
-            className="bg-blue-500 text-white px-2 py-1 rounded-md mt-4 hover:bg-blue-700 transition-colors duration-300"
+            className="bg-blue-500 text-white px-2 py-1 rounded-md mt-4 hover:bg-blue-700 transition-colors duration-300 dark:bg-blue-700 dark:hover:bg-blue-900 dark:text-gray-50"
             onClick={() => {
               alert("Thank you for shopping with us!");
               clearCart();
@@ -95,7 +96,7 @@ const Cart = () => {
           </button>
 
           <button
-            className="bg-red-500 text-white px-2 py-1 rounded-md mt-4 ml-4 hover:bg-red-700 transition-colors duration-300"
+            className="bg-red-500 text-white px-2 py-1 rounded-md mt-4 mb-7 ml-4 hover:bg-red-700 transition-colors duration-300 dark:text-gray-50"
             onClick={clearCart}
           >
             Clear cart

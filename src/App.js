@@ -5,10 +5,12 @@ import Navbar from "./components/Navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Cart from "./components/Cart";
 import Card from "./components/Card";
+import { ThemeProvider } from "./context/ThemeContext";
 
 function App() {
   return (
     <ProductProvider>
+      <ThemeProvider>
       <BrowserRouter>
         <Navbar />
         <Routes>
@@ -16,6 +18,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
         </Routes>
       </BrowserRouter>
+      </ThemeProvider>
     </ProductProvider>
   );
 }

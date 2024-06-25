@@ -20,9 +20,9 @@ const Card = () => {
 
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 dark:bg-gray-600">
         {products.map((product) => (
-          <div key={product.id} className="border p-4 rounded-lg m-1 shadow-lg">
+          <div key={product.id} className="border p-4 rounded-lg m-1 shadow-lg dark:border-none bg-white dark:bg-gray-800 text-black dark:text-gray-50">
             <h3 className="text-center font-bold mb-4">{product.title}</h3>
             <img
               src={product.image}
@@ -37,7 +37,7 @@ const Card = () => {
             <div className="flex justify-center items-center m-2">
               {isAddedToCart(product.id) ? (
                 <p
-                  className="px-3 py-1 flex flex-wrap items-center mr-2 text-green-700 bg-green-100 rounded-md"
+                  className="px-3 py-1 flex flex-wrap items-center mr-2 text-green-700 bg-green-100 dark:bg-green-700 dark:text-green-200 rounded-md"
                   disabled
                 >
                   <FaCheck className="mr-2" />
@@ -45,7 +45,7 @@ const Card = () => {
                 </p>
               ) : (
                 <button
-                  className="bg-blue-500 text-white px-3 py-1 rounded-md flex items-center mr-2 transition-colors duration-300 hover:bg-blue-700"
+                  className="bg-blue-500 text-white px-3 py-1 rounded-md flex items-center mr-2 transition-colors duration-300 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-900"
                   onClick={() => handleAddToCart(product)}
                 >
                   <IoCart className="mr-1" />
